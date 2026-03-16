@@ -72,4 +72,8 @@ INNER JOIN 詳細テーブル AS D ON J.受注番号 = D.受注番号
 INNER JOIN 商品マスタ AS S ON D.商品コード = S.商品コード
 ORDER by 受注番号 ASC;
 
-
+-- RDBの内部連結複数の書き方
+SELECT * FROM 
+	(((受注テーブル INNER JOIN 詳細テーブル ON 受注テーブル.受注番号 = 詳細テーブル.受注番号)
+		INNER JOIN 顧客マスタ ON 受注テーブル.顧客コード=顧客マスタ.顧客コード)
+	INNER JOIN 商品マスタ ON 詳細テーブル.商品コード = 商品マスタ.商品コード);
