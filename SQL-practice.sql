@@ -13,3 +13,13 @@ CREATE TABLE 部署テーブル(
 	部署名 varchar(30) not null,
     PRIMARY KEY (部署コード)
 );
+-- データの挿入 INSERT文
+INSERT INTO 社員テーブル
+VALUES(100,'小滝 美都子','2003-4-1','B001'
+);
+INSERT INTO 社員テーブル
+VALUES(101,'羽田 優子','2003-9-4','B002'
+);
+INSERT INTO 社員テーブル
+VALUES(103,'石井 裕之','2005-4-1','B001'
+);
