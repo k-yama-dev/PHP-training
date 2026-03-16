@@ -49,5 +49,27 @@ WHERE 部署テーブル.部署名 = 'システム開発部';
 ON テーブル１.項目名 = テーブル2.項目名)
     INNER JOIN テーブル3
     ON テーブル１.項目名 = テーブル３.項目名) 
+-- 課題2 正規化
+
+	受注テーブル
+詳細テーブル　主キー組
+商品マスタ
+顧客マスタ
+char(4)ABES BABA CHIB
+
+SELECT 
+    J.受注番号, 
+    J.受注日, 
+    K.顧客名 AS 受注先, 
+    S.商品名, 
+    D.数量, 
+    S.単価,
+    (D.数量 * S.単価) AS 合計金額  -- ここで計算！🧮
+FROM 
+    受注テーブル AS J
+INNER JOIN 顧客マスタ AS K ON J.顧客コード = K.顧客コード
+INNER JOIN 詳細テーブル AS D ON J.受注番号 = D.受注番号
+INNER JOIN 商品マスタ AS S ON D.商品コード = S.商品コード
+ORDER by 受注番号 ASC;
 
 
