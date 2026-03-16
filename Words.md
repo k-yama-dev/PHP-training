@@ -13,6 +13,13 @@ Webページ（HTML）のこと！
 ## RDB : Relational Database
 ### Relational（リレーショナル）: 「関係のある」「関連した」
 ### Database（データベース）: 「データの基地」
+テーブル（Table） 📊
+行と列でできた、エクセルのような表のこと。<br>
+レコード（Record / Row） ↔️
+横1行分のデータのこと。「田中さんのデータ1件分」て感じ！<br>
+カラム（Column / Field） ↕️
+縦の項目のこと。「氏名」「入社日」など、データの属性！
+
 
 ## ASC Ascend
 上昇　上る 上がる
