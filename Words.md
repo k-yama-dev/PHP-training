@@ -10,6 +10,9 @@ Webページ（HTML）のこと！
 （ストラクチャード・クエリ・ランゲージ）
 ## Structured
 構造化された
+## RDB : Relational Database
+### Relational（リレーショナル）: 「関係のある」「関連した」
+### Database（データベース）: 「データの基地」
 
 ## ASC Ascend
 上昇　上る 上がる
