@@ -27,5 +27,7 @@ INSERT INTO 部署テーブル
 VALUES('B001','システム開発部');
 INSERT INTO 部署テーブル
 VALUES('B002','総務部');
+--select文
+SELECT * FROM `社員テーブル` WHERE 部署コード = 'B001';
 
 
