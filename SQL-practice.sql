@@ -23,3 +23,9 @@ VALUES(101,'羽田 優子','2003-9-4','B002'
 INSERT INTO 社員テーブル
 VALUES(103,'石井 裕之','2005-4-1','B001'
 );
+INSERT INTO 部署テーブル
+VALUES('B001','システム開発部');
+INSERT INTO 部署テーブル
+VALUES('B002','総務部');
+
+
