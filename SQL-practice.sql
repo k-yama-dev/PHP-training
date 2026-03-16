@@ -7,3 +7,9 @@ create table 社員テーブル(
     部署コード char(4),
     primary key (社員番号)
 );
+
+CREATE TABLE 部署テーブル(
+	部署コード char(4) not null,
+	部署名 varchar(30) not null,
+    PRIMARY KEY (部署コード)
+);
