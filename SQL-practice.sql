@@ -102,3 +102,38 @@ SELECT 商品名, SUM(数量*単価) AS 合計金額 FROM
     GROUP BY 商品名
     HAVING 合計金額 >=10000
     ORDER BY 商品名 ASC;
+
+--0317 課題
+-- shopデータベース
+create database shop;
+-- shopデータベースに移動
+use shop;
+-- shohinテーブル
+create table shohin (
+  shohin_id char(4) not null,
+  shohin_mei varchar(100) not null,
+  shohin_bunrui varchar(32) not null,
+  hanbai_tanka int,
+  shiire_tanka int,
+  torokubi date,
+  primary key(shohin_id)
+);
+-- データ挿入
+insert into shohin values ('0001', 'Tシャツ','衣服',1000,500,'2009-09-20');
+insert into shohin values ('0002', '穴あけパンチ','事務用品',500,320,'2009-09-11');
+insert into shohin values ('0003', 'カッターシャツ','衣服',4000,2800,null);
+insert into shohin values ('0004', '包丁','キッチン用品',3000,2800,'2009-09-20');
+insert into shohin values ('0005', '圧力鍋','キッチン用品',6800,5000,'2009-01-15');
+insert into shohin values ('0006', 'フォーク','キッチン用品',500,null,'2009-09-20');
+insert into shohin values ('0007', 'おろしがね','キッチン用品',800,790,'2008-04-28');
+insert into shohin values ('0008', 'ボールペン','事務用品',100,null,'2009-11-11');
+--項目を指定して表示するselect文
+SELECT shohin_id,shohin_mei,shiire_tanka FROM shohin;
+--項目を別名で表示 AS
+SELECT shohin_id AS '商品ID',shohin_mei AS '商品名',shiire_tanka AS '商品単価' FROM shohin;
+--distinct 重複したものをださない
+SELECT DISTINCT shohin_bunrui FROM shohin;
+--where文
+SELECT shohin_mei,shohin_bunrui FROM shohin WHERE shohin_bunrui='衣服';
+--nullを検索で表示 is null
+SELECT shohin_mei,shohin_bunrui FROM shohin WHERE torokubi is null;
