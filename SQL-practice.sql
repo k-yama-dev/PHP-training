@@ -167,3 +167,225 @@ insert into shohin values ('0005', '圧力鍋','キッチン用品',6800,5000,'2
 insert into shohin values ('0006', 'フォーク','キッチン用品',500,null,'2009-09-20');
 insert into shohin values ('0007', 'おろしがね','キッチン用品',800,790,'2008-04-28');
 insert into shohin values ('0008', 'ボールペン','事務用品',100,null,'2009-11-11');
+
+-- 列の指定
+select shohin_id as "商品ID", shohin_mei as "商品名", shiire_tanka as "商品単価"
+   from shohin;
+
+-- 定数
+select "商品", 38, shohin_id
+   from shohin;
+
+-- 重複排除
+select DISTINCT shohin_bunrui
+   from shohin;
+-- 衣服
+-- 事務用品
+-- キッチン用品
+
+select DISTINCT shiire_tanka
+   from shohin;
+-- 500
+-- 320
+-- 2800  まとまった
+-- 5000
+-- NULL　まとまった
+-- 790
+
+-- whereで絞込
+select shohin_mei, shohin_bunrui
+   from shohin
+   where shohin_bunrui='衣服';
+
+/*
+ * コメント
+ */
+
+-- nullは=では検索できない
+select shohin_mei, shohin_bunrui
+   from shohin
+   where torokubi = null;
+
+-- nullの検索はisを使う
+select shohin_mei, shohin_bunrui
+   from shohin
+   where torokubi is null;
+
+-- 数値の比較
+select shohin_mei, shohin_bunrui, hanbai_tanka
+   from shohin
+   where hanbai_tanka <= 1000;
+
+-- 文字列比較の実験
+create table chars(
+    chr char(3) not null,
+    primary key(chr)
+);
+
+insert into chars values ('1');
+insert into chars values ('2');
+insert into chars values ('3');
+insert into chars values ('10');
+insert into chars values ('11');
+insert into chars values ('222');
+
+select chr
+  from chars
+  where chr > '2';
+-- 222
+-- 3
+-- 10と11は入らない
+
+-- fromが無くても動く
+select 100;
+
+select 100+300;
+-- 100+300 列名
+-- 400     値
+
+-- nullが計算に出てくると答はすべてnullになる
+select 100+null;
+-- null
+
+-- 論理演算子
+-- not
+select shohin_mei, shohin_bunrui, hanbai_tanka
+  from shohin
+  where hanbai_tanka >= 1000;
+
+-- notを使うと反対の意味になる
+select shohin_mei, shohin_bunrui, hanbai_tanka
+  from shohin
+  where not hanbai_tanka >= 1000;
+
+-- and 論理演算子
+select 
+  shohin_mei, shohin_bunrui, hanbai_tanka
+ from shohin
+ where shohin_bunrui = 'キッチン用品'
+   and hanbai_tanka >= 3000;
+
+-- or 論理演算子
+select 
+  shohin_mei, shohin_bunrui, hanbai_tanka
+ from shohin
+ where shohin_bunrui = 'キッチン用品'
+   or hanbai_tanka >= 3000;
+
+-- andとorが混在するとおかしくなる
+select shohin_mei, shohin_bunrui, torokubi
+  from shohin
+  where shohin_bunrui = '事務用品' 
+    and torokubi = '2009-9-11' 
+    or torokubi = '2009-9-20';
+-- Tシャツ 衣服 2009-09-20
+-- 穴あけパンチ 事務用品 2009-09-11
+-- 包丁 キッチン用品 2009-09-20
+-- フォーク キッチン用品 2009-09-20
+
+select shohin_mei, shohin_bunrui, torokubi
+  from shohin
+  where shohin_bunrui = '事務用品' 
+    and (torokubi = '2009-9-11' 
+    or torokubi = '2009-9-20');
+-- 穴あけパンチ 事務用品 2009-09-11  正しくなった
+
+-- 関数
+--count
+select count(*) from shohin;
+-- 8
+
+select count(shiire_tanka) from shohin;
+-- 6 nullは数えない
+
+-- sum関数
+select sum(hanbai_tanka) from shohin;
+-- 16700
+
+-- sum関数二つ
+select sum(hanbai_tanka),sum(shiire_tanka) from shohin;
+-- shiire_tankaにnullがあるが、無視されて0として合計させる
+
+select avg(hanbai_tanka),avg(shiire_tanka) from shohin;
+-- 2087.5000 2035.0000
+-- shiire_tankaはnullがあるので/6で計算される
+
+-- max関数
+select max(hanbai_tanka),max(shiire_tanka) from shohin;
+-- 6800 5000
+
+select min(hanbai_tanka),min(shiire_tanka) from shohin;
+-- 100 320
+-- nullは入らない
+
+-- min,maxは日付もできる
+select max(torokubi),min(torokubi) from shohin;
+-- 2009-11-11 2008-04-28
+
+-- 文字もできる
+select max(shohin_mei),min(shohin_mei) from shohin;
+-- 穴あけパンチ Tシャツ
+
+-- 関数内でdistinctが使える
+select count(DISTINCT shohin_bunrui) from shohin;
+-- 3
+
+-- group byでグループ化
+-- 分類の各行数を数える
+select shohin_bunrui,count(*)
+  from shohin
+  GROUP BY shohin_bunrui;
+-- 衣服 2
+-- 事務用品 2
+-- キッチン用品 4
+
+-- nullを含む場合、名無しで集計される
+select shiire_tanka,count(*) from shohin GROUP BY shiire_tanka;
+
+-- havingの練習
+select shohin_bunrui,count(*)
+  from shohin
+  GROUP BY shohin_bunrui;
+
+-- havingの使用
+select shohin_bunrui,count(*)
+  from shohin
+  GROUP BY shohin_bunrui
+  HAVING count(*) = 2;
+
+-- 別名も使える
+select shohin_bunrui,count(*) as cnt
+  from shohin
+  GROUP BY shohin_bunrui
+  HAVING cnt = 2;
+
+-- 販売単価の昇順
+select shohin_id,shohin_mei,hanbai_tanka,shiire_tanka
+  from shohin
+  order by hanbai_tanka;
+
+-- 販売単価の降順
+select shohin_id,shohin_mei,hanbai_tanka,shiire_tanka
+  from shohin
+  order by hanbai_tanka desc;
+
+-- 販売単価の昇順でidの降順
+select shohin_id,shohin_mei,hanbai_tanka,shiire_tanka
+  from shohin
+  order by hanbai_tanka, shohin_id desc;
+
+-- nullを含む場合データベースによって異なる
+select shohin_id,shohin_mei,hanbai_tanka,shiire_tanka
+  from shohin
+  order by shiire_tanka;
+
+-- shohinins
+create table shohinins (
+  shohin_id char(4) not null,
+  shohin_mei varchar(100) not null,
+  shohin_bunrui varchar(32) not null,
+  hanbai_tanka int default 0,
+  shiire_tanka int,
+  torokubi date,
+  primary key(shohin_id)
+);
