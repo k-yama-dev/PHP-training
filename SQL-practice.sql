@@ -389,3 +389,15 @@ create table shohinins (
   torokubi date,
   primary key(shohin_id)
 );
+-- 列リストを指定してinsert
+insert into shohinins (shohin_id,shohin_mei,shohin_bunrui,hanbai_tanka,shiire_tanka,torokubi)
+  values ('0001','Tシャツ','衣服',1000,500,'2009-9-20');
+
+-- default値を入れてみる
+insert into shohinins (shohin_id,shohin_mei,shohin_bunrui,hanbai_tanka,shiire_tanka,torokubi)
+  values ('0007', 'おろしがね','キッチン用品',DEFAULT,790,'2008-04-28');
+-- default値の０が入る
+
+-- 指定しないことによりdefault値を入力する
+insert into shohinins (shohin_id,shohin_mei,shohin_bunrui,shiire_tanka,torokubi)
+  values ('0008', 'ボールペン','事務用品',null,'2009-11-11');
