@@ -392,12 +392,119 @@ create table shohinins (
 -- 列リストを指定してinsert
 insert into shohinins (shohin_id,shohin_mei,shohin_bunrui,hanbai_tanka,shiire_tanka,torokubi)
   values ('0001','Tシャツ','衣服',1000,500,'2009-9-20');
-
 -- default値を入れてみる
 insert into shohinins (shohin_id,shohin_mei,shohin_bunrui,hanbai_tanka,shiire_tanka,torokubi)
   values ('0007', 'おろしがね','キッチン用品',DEFAULT,790,'2008-04-28');
 -- default値の０が入る
 
+
 -- 指定しないことによりdefault値を入力する
 insert into shohinins (shohin_id,shohin_mei,shohin_bunrui,shiire_tanka,torokubi)
   values ('0008', 'ボールペン','事務用品',null,'2009-11-11');
+
+
+-- 0318
+SELECT shohin_bunrui,SUM(hanbai_tanka),SUM(shiire_tanka) FROM shohin GROUP BY shohin_bunrui;
+--view
+CREATE VIEW shohinSum(shohin_bunrui,sum_hanbai,sum_shiire) 
+AS SELECT shohin_bunrui,SUM(hanbai_tanka),SUM(shiire_tanka) 
+FROM shohin GROUP BY shohin_bunrui;
+--view 削除
+Drop View --view名
+
+create view shohincnt(shohin_bunrui,cnt_bunrui)
+as select shohin_bunrui,count(*) from shohin group by shohin_bunrui;
+--サブクエリ
+SELECT shohin_bunrui,shohin_cnt
+FROM(SELECT shohin_bunrui,COUNT(*)
+     	AS shohin_cnt
+    	FROM shohin
+    	GROUP BY shohin_bunrui)
+        AS shohincnt;
+--サブクエリinサブクエリ
+SELECT shohin_bunrui,shohin_cnt
+FROM(SELECT * 
+      	FROM(SELECT shohin_bunrui,COUNT(*)
+     			AS shohin_cnt
+    			FROM shohin
+    			GROUP BY shohin_bunrui)
+         AS shohincnt
+WHERE shohin_cnt = 4)  
+AS shohincnt2;
+--Gem
+SELECT shohin_bunrui, shohin_cnt
+FROM (
+    SELECT * 
+    FROM (
+        SELECT shohin_bunrui, COUNT(*) AS shohin_cnt
+        FROM shohin
+        GROUP BY shohin_bunrui
+    ) AS shohincnt -- 1つ目のマトリョーシカ
+    WHERE shohin_cnt = 4
+) AS shohincnt2; -- 2つ目のマトリョーシカ
+--スカラ・サブクエリ
+SELECT shohin_id,shohin_mei,hanbai_tanka
+FROM shohin
+WHERE hanbai_tanka > (SELECT AVG(hanbai_tanka) FROM shohin);
+
+--テキスト
+/* view */
+-- まず登録したいselect文を作る
+select shohin_bunrui, sum(hanbai_tanka), sum(shiire_tanka)
+  from shohin
+  group by shohin_bunrui;
+
+-- viewに登録する
+create view shohinSum (shohin_bunrui, sum_hanbai, sum_shiire)
+AS
+select shohin_bunrui, sum(hanbai_tanka), sum(shiire_tanka)
+  from shohin
+  group by shohin_bunrui;
+
+--実行
+select * from shohinsum;
+
+-- 課題：分類ごとの商品数をカウントするshohincnt viewを作れ
+create view shohincnt (shohin_bunrui,bunrui_cnt)
+AS
+SELECT shohin_bunrui,count(*)
+  from shohin
+  GROUP BY shohin_bunrui;
+
+--実行
+select * from shohincnt;
+
+-- shohincnt viewと同じ動きをするサブクエリ
+select shohin_bunrui, shohin_cnt
+  from (select shohin_bunrui, count(*) as shohin_cnt
+       from shohin
+         group by shohin_bunrui) as shohincnt;
+
+-- cnt_shohinが４のものだけ抽出するサブクエリを書け
+select shohin_bunrui, shohin_cnt
+  from (select * 
+          from (select shohin_bunrui, count(*) as shohin_cnt
+                  from shohin
+                  group by shohin_bunrui) as shohincnt
+          where shohin_cnt = 4) as shohincnt2;
+
+/* スカラサブクエリ */
+-- 販売単価の平均を求めよ
+select avg(hanbai_tanka) from shohin;
+-- 2085.5
+
+-- サブクエリを使って販売単価が平均値より高いものを探しましょう
+select shohin_id, shohin_mei, hanbai_tanka
+  from shohin
+  where hanbai_tanka > (select avg(hanbai_tanka) from shohin);
+
+-- select句でも使える
+select shohin_id, shohin_mei, hanbai_tanka,(select avg(hanbai_tanka) from shohin) as shohin_avg
+  from shohin;
+
+/* 相関サブクエリ */
+select shohin_bunrui, shohin_mei, hanbai_tanka
+  from shohin as S1
+  where hanbai_tanka > (select avg(hanbai_tanka) from shohin as S2
+                          where S1.shohin_bunrui=S2.shohin_bunrui
+						  group by shohin_bunrui);
