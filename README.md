@@ -7,3 +7,5 @@
 select,sum,as,where,having
 ### 0317
 dockerの説明 課題 'shohin'
+### 0318
+view
