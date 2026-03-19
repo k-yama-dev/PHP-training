@@ -2,6 +2,8 @@
 （ストラクチャード・クエリ・ランゲージ）
 ## Structured
 構造化された
+## query
+質問 疑問 問い合わせ
 ## RDB : Relational Database
 ### Relational（リレーショナル）: 「関係のある」「関連した」
 ### Database（データベース）: 「データの基地」
@@ -17,8 +19,6 @@
 上昇　上る 上がる
 ## DESC Descend
 下降　下る　下がる
-## query
-質問 疑問 問い合わせ
 ## null
 無効の 存在しない 価値のない ゼロの
 ## alias
