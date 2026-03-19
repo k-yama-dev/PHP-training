@@ -19,3 +19,5 @@ Webページ（HTML）のこと！
 ドサッとおろす 投げ捨てる 放出する （人を）振る、首にする
 ## concatenation
 繋げること 連結 連鎖
+## bool　boolen
+論理型 真偽値 2値 論理的な true,falseの二択理論
