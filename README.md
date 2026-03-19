@@ -9,3 +9,5 @@ select,sum,as,where,having
 dockerの説明 課題 'shohin'
 ### 0318
 view サブクエリ スカラ・サブクエリ 相関サブクエリ　小テスト
+### 0319
+1st.php 
