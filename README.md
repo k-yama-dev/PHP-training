@@ -13,4 +13,4 @@ view サブクエリ スカラ・サブクエリ 相関サブクエリ　小テ�
 ### 0319
 1st.php echo $ dump .(連結) if if~else
 ### 0323
-if~elseif~else for foreach array nest-array
+if-elseif-else for foreach array nest-array
