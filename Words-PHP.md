@@ -29,3 +29,15 @@ Webページ（HTML）のこと！
 配列 整列させる ずらりと並んだ
 ## nest
 入れ子 （鳥や動物の）巣 巣窟 たまり場
+### fatal 
+致命的な 破滅的な 極めて重大な
+
+# csv : Comma Separated Values
+## conmma 
+コンマ
+## separated
+切り離された 区切られた 離す
+## value
+値
+## row
+行　（横の）席列 列、並び
