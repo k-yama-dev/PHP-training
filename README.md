@@ -15,4 +15,4 @@ view サブクエリ スカラ・サブクエリ 相関サブクエリ　小テ�
 ### 0323
 if-elseif-else for foreach array nest-array
 ### 0324
-html view data function
+html view data function less03 fopen fgetcsv  
