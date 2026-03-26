@@ -19,6 +19,6 @@ if-elseif-else for foreach array nest-array
 ### 0324
 html view data function less03 fopen fgetcsv  
 ### 0325
-XSS htmlspecialchars str2html 関数化 フォームを使ったアプリ 課題:素数 体重アプリ完
+XSS htmlspecialchars str2html 関数化 フォームを使ったアプリ 課題:素数 体重アプリ
 ### 0326
 file_get_contents json_deccode curl_init preg_match
