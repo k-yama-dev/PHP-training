@@ -43,3 +43,31 @@ Webページ（HTML）のこと！
 行　（横の）席列 列、並び
 ## operand
 対象となる演算子
+
+# API : Application Programming Interface
+## application
+≪ｺﾝﾋﾟｭｰﾀ≫アプリケーション（実務用ソフトウェア） 適用すること 応用 申込 出願 申請 願書
+## programming
+プログラム作成 プログラミング 《電算機に指令する作業手順の精密な記述》
+## interface
+(二者間の)境界線 接点 【窓口】 共通の問題
+
+# JSON : JavaScript Object Notation
+## JavaSript
+Script=台本 脚本 「書いてすぐに実行できる、比較的容易なプログラミング命令」
+## Object
+操作の対象となる単位 物 物体 目的 客観 
+## notation
+表記法 記号法 表記 記号 符号 メモ 記録
+
+## decode
+暗号を解く 平文に直す
+
+# XML : Extensible Markup Language
+## extensible
+拡張可能な 広げることができる 伸ばせる 伸張性のある
+## markup
+タグ付け 値上げ 
+# Ajax : Asynchronous JavaScript and XML
+## asynchronous
+非同時性の 非同期式の
