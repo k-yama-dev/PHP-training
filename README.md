@@ -21,4 +21,4 @@ html view data function less03 fopen fgetcsv
 ### 0325
 XSS htmlspecialchars str2html 関数化 フォームを使った体重測定アプリ 課題:素数 
 ### 0326
-file_get_contents json_deccode curl_init preg_match
+file_get_contents json_deccode curl_init バリデーション preg_match 正規表現 isset 合体演算子　課題：最大公約数を求めるhtml,PHPのセットを作りましょ
