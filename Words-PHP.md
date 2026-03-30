@@ -71,3 +71,13 @@ Script=台本 脚本 「書いてすぐに実行できる、比較的容易な�
 # Ajax : Asynchronous JavaScript and XML
 ## asynchronous
 非同時性の 非同期式の
+
+## instance
+(DBなどの)実体 例 実例 場合
+## exception
+例外(処理) 除外 異例 異議
+## fetch
+取ってくる 呼んでくる 連れてくる 出す 売れる
+
+# XSS : Cross Site Scripting
+## 「悪意のあるプログラム（JavaScriptなど）を、他人のWebサイトに勝手に埋め込む攻撃」
