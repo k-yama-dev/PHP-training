@@ -25,3 +25,5 @@ file_get_contents json_deccode curl_init バリデーション preg_match 正規
 ### 0330
 less5-01 PDO 例外 02 query fetch 03 データの追加 add.html　add.php
 04 入力内容のバリデーション 課題の答え合わせ
+### 0331
+05:DB接続処理の関数化 06:データ更新の仕組みの作成 07:更新用入力フォームの表示 
