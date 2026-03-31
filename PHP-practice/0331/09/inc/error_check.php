@@ -1,0 +1,34 @@
+<?php
+if (empty($_POST['title'])) {
+    echo "タイトル必須やで";
+    exit;
+}
+if (!preg_match('/\A[[:^cntrl:]]{1,200}\z/u', $_POST['title'])) {
+    echo "タイトルは200文字までやでぇ";
+    exit;
+}
+if (!preg_match('/\A\d{0,13}\z/', $_POST['isbn'])) {
+    echo "ISBNは数字13桁までやでぇ";
+    exit;
+}
+if (!preg_match('/\A\d{0,6}\z/u', $_POST['price'])) {
+    echo "価格は数字6桁までやでぇ";
+    exit;
+}
+if (empty($_POST['publish'])) {
+    echo "日付は必須やでぇ";
+    exit;
+}
+if (!preg_match('/\A\d{4}-\d{1,2}-\d{1,2}\z/u', $_POST['publish'])) {
+    echo "日付のフォーマットが違うやでぇ";
+    exit;
+}
+$date = explode('-', $_POST['publish']);
+if (!checkdate($date[1], $date[2], $date[0])) {
+    echo "正しい日付を入れるんやでぇ";
+    exit;
+}
+if (!preg_match('/\A[[:^cntrl:]]{0,80}\z/u', $_POST['author'])) {
+    echo "著者名は80文字以内やでぇ";
+    exit;
+}
