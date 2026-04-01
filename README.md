@@ -28,3 +28,5 @@ less5-01 PDO 例外 02 query fetch 03 データの追加 add.html　add.php
 ### 0331
 05:DB接続処理の関数化 06:データ更新の仕組みの作成 07:更新用入力フォームの表示 
 08:データの更新 画面遷移図 09:共通部分を別ファイル化
+### 0401
+userテーブル作成 cmd pw_hash pw_verify session ログインフォーム作成
