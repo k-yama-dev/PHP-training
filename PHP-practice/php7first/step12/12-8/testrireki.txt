@@ -1,0 +1,12 @@
+E:\職業訓練のデータ\ITプログラマ\php7first\p12-8>phpunit tests > testrireki.txt
+Xdebug: [Step Debug] Time-out connecting to debugging client, waited: 200 ms. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+
+E:\職業訓練のデータ\ITプログラマ\php7first\p12-8>type testrireki.txt
+0PHPUnit 9.5.23 #StandWithUkraine
+
+.                                                                   1 / 1 (100%)
+
+Time: 00:00.012, Memory: 4.00 MB
+
+OK (1 test, 1 assertion)
+

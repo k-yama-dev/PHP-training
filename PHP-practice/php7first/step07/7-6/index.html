@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>複数値の受け渡し</title>
+</head>
+<body>
+    <!-- //form>select>(option*4) -->
+    <form action="select.php" method="post">
+        <select name="color[]" multiple>
+            <option value="red">RED</option>
+            <option value="bule">BULE</option>
+            <option value="yellow">YELLOW</option>
+            <option value="green">GREEN</option>
+        </select>
+        <input type="submit" name="submit">
+    </form>
+</body>
+</html>
