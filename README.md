@@ -30,3 +30,5 @@ less5-01 PDO 例外 02 query fetch 03 データの追加 add.html　add.php
 08:データの更新 画面遷移図 09:共通部分を別ファイル化
 ### 0401
 userテーブル作成 cmd pw_hash pw_verify session ログインフォーム作成 <br>ログイン情報の照合 トップページ遷移 ログアウト　トークン DONE THIS BOOK
+### 0409
+1~3 chap5-chap9
