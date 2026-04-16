@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="profile.php" method="get">
+        <label>name: <input type="text" name="form[user_name]"></label><br>
+        <label>age: <input type="text" name="form[user_age]"></label><br>
+        <label>private: <input type="hidden" name="form[settings_private]" value="off">
+            <input type="checkbox" name="form[settings_private]" value="on"></label><br>
+        <label>notification: <input type="hidden" name="form[settings_notification]" value="off">
+            <input type="checkbox" name="form[settings_notification]" value="on"></label><br>
+        <input type="submit" value="確認">
+    </form>
+</body>
+</html>
