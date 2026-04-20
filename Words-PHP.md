@@ -128,3 +128,7 @@ LINUXシェルの中に入る(LINUXシステム,翻訳窓口の中に入る)
 
 ## concatenate
 連結する 鎖状につなぐ
+## internal
+内部の コンテナのinside 内蔵の
+## external
+外部の コンテナのoutside windows側 外付けの
